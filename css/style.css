@@ -1,0 +1,337 @@
+@charset "UTF-8";
+
+/* ベース設定・フォント計画 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: #F9F6F0; /* ベースカラー：温かみのあるクリーム色 */
+  color: #333333;
+  line-height: 1.8;
+}
+
+h1, h2, h3, .serif {
+  font-family: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ヘッダー＆ナビゲーション */
+header {
+  background-color: #FFFFFF;
+  border-bottom: 3px solid #722F37; /* メインカラー：ワインレッド */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  height: 55px;
+  width: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #722F37;
+  font-size: 1rem;
+  padding: 6px 4px;
+  border-bottom: 2px solid transparent;
+}
+
+nav a.active, nav a:hover {
+  border-bottom: 2px solid #C5A059; /* アクセントカラー：ゴールド */
+}
+
+/* パンくずリスト（下層ページからトップへ戻る導線） */
+.breadcrumb {
+  max-width: 1100px;
+  margin: 15px auto 0;
+  padding: 0 20px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.breadcrumb a {
+  color: #722F37;
+  text-decoration: underline;
+}
+
+/* ヒーローエリア（トップページメイン画像） */
+.hero {
+  position: relative;
+  height: 480px;
+  background-color: #2C2C2C;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFFFFF;
+  width: 90%;
+}
+
+.hero-text h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+/* 共通セクションレイアウト */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.9rem;
+  color: #722F37;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: #C5A059;
+}
+
+/* コンセプトボックス */
+.concept-box {
+  background-color: #FFFFFF;
+  padding: 40px;
+  border-radius: 8px;
+  border: 1px solid #E6DFD3;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.concept-box h3 {
+  font-size: 1.5rem;
+  color: #722F37;
+  margin-bottom: 16px;
+}
+
+/* 3カラムカード（おすすめ・メニュー一覧） */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  border: 1px solid #E6DFD3;
+}
+
+.card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover; /* 写真の縦横比を統一してトリミング */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  color: #722F37;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-weight: bold;
+  color: #C5A059;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+/* こだわりページ用（交互レイアウト） */
+.kodawari-item {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background-color: #FFFFFF;
+  padding: 28px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border: 1px solid #E6DFD3;
+}
+
+.kodawari-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.kodawari-img {
+  flex: 1;
+}
+
+.kodawari-img img {
+  border-radius: 6px;
+  height: 240px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.kodawari-text {
+  flex: 1.2;
+}
+
+.kodawari-badge {
+  display: inline-block;
+  background-color: #722F37;
+  color: #FFFFFF;
+  padding: 3px 12px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.kodawari-text h3 {
+  font-size: 1.4rem;
+  color: #722F37;
+  margin-bottom: 12px;
+}
+
+/* ボタン（ページ遷移・トップへ戻る） */
+.btn-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #722F37;
+  color: #FFFFFF;
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border: 2px solid #722F37;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #722F37;
+}
+
+/* 店舗情報テーブル */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #FFFFFF;
+  margin-top: 20px;
+}
+
+.info-table th, .info-table td {
+  padding: 16px 20px;
+  border: 1px solid #E6DFD3;
+  text-align: left;
+}
+
+.info-table th {
+  background-color: #F3ECE1;
+  color: #722F37;
+  width: 28%;
+}
+
+/* フッター */
+footer {
+  background-color: #2C2C2C;
+  color: #F9F6F0;
+  text-align: center;
+  padding: 40px 20px 24px;
+  margin-top: 40px;
+}
+
+.footer-nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.footer-nav a {
+  color: #C5A059;
+  font-size: 0.95rem;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #AAAAAA;
+  margin-top: 20px;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .kodawari-item, .kodawari-item:nth-child(even) {
+    flex-direction: column;
+  }
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+}
